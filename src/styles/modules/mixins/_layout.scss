@@ -1,0 +1,34 @@
+$flex-props: (
+	j-c: justify-content,
+	a-c: align-content,
+	a-i: align-items,
+	f-d: flex-direction,
+	w: flex-wrap
+);
+$grid-props: (
+	
+);
+
+@mixin flex($list: (w: null, j-c: null, a-c: null, f-d: null)) {
+	display: flex;
+
+	@each $nickname, $value in $list {
+		@if map-has-key($flex-props, $nickname) {
+			#{map-get($flex-props, $nickname)}: $value;
+		}
+	}
+}
+@mixin grid($list: (row: null, col: null, gap: 0)) {
+	display: grid;
+
+	$col: map-get($list, col);
+	$row: map-get($list, row);
+
+	@if $col != null {
+		grid-template-columns: repeat($col, 1fr);
+	}
+	@if $row != null {
+		grid-template-rows: repeat($row, 1fr);
+	}
+	gap: map-get($list, gap);
+}

@@ -3,7 +3,7 @@ window.initMap = function initMap() {
 
 	const map = new google.maps.Map(document.getElementById('headquarters-map'), {
 		center: coords,
-		zoom: 13
+		zoom: 18
 	});
 
     const marker = new google.maps.Marker({
@@ -12,3 +12,4 @@ window.initMap = function initMap() {
         title: 'Cidesa Group Headquarters'
     });
 };
+

@@ -15,10 +15,14 @@
 		<script src="scripts/general.js"></script>
 		<script src="scripts/contact.js"></script>
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiL3nGIgWIyT5j22FjF8fvC-Uo4tz_P5o&callback=initMap" defer></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiL3nGIgWIyT5j22FjF8fvC-Uo4tz_P5o&libraries=streetView&callback=initMap" defer></script>
 		<title>Contacto - Cidesa Group</title>
 	</head>
 	<body>
+		<!-- Page Preloader -->
+		<div id="preloader-page" class="preloader-page displayed showed">
+			<div class="pl pl-leapfrog"></div>
+		</div>
 		<!-- Header -->
 		<header>
 			<!-- Social Media Menu -->
@@ -48,7 +52,7 @@
 							<li><a href="#"><span>Our IT Services</span></a></li>
 							<li><a href="about.html"><span>Cidesa Group</span></a></li>
 							<li><a href="#"><span>Blog & Publications</span></a></li>
-							<li><a href="#"><span>Partner</span></a></li>
+							<li><a href="advanced-form.html"><span>Partner</span></a></li>
 							<li class="contact"><a href="#" class="cta-btn">Contacto</a></li>
 						</ul>
 					</nav>
@@ -189,7 +193,7 @@
 				</hgroup>
 			</div>
 			<div class="map-wrapper">
-				<div id="headquarters-map" class="headquarters-map" data-aos="zoom-in"></div>
+				<div id="headquarters-map" class="headquarters-map" data-aos="fade-in"></div>
 			</div>
 		</section>
         <!-- Footer -->

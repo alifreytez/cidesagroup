@@ -59,9 +59,6 @@
 .our-contact-form .two-content-wrapper {
   flex-direction: initial;
 }
-.our-contact-form .two-content-wrapper .prev-to-list {
-  margin-top: 20px;
-}
 .our-contact-form .two-content-wrapper ul li {
   list-style: none;
   margin-top: 10px;

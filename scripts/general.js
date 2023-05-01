@@ -1,3 +1,16 @@
+function StartedAt() {}
+StartedAt.addSpace = function(item) {
+	StartedAt.space = { ...StartedAt.space, ...item };
+
+	try {
+		item();
+	} catch (error) {
+		console.log(`error: ${error}`);
+	}
+}
+StartedAt.removeSpace = function() {}
+StartedAt.space = {}
+
 function AnimateHeader() {
 	this.header = document.querySelector("header");
 	this.banner = document.querySelector("#banner");
@@ -71,14 +84,45 @@ function AnimateNavMenu() {
 	this.open = () => this.menu.classList.add("showed");
 	this.close = () => this.menu.classList.remove("showed");
 }
+function PreloaderPage() {
+	this.element = document.getElementById("preloader-page");
+	this.waitting = 1000;
+	this.timeout = null;
+	
+	this.open = () => {
+		this.element.classList.add("displayed");
+		setTimeout(() => this.element.classList.add("showed"), 10);
+	}
+	this.close = () => {
+		const diff = new Date(Date.now()) - PreloaderPage.startAt;
+
+		if (diff < this.waitting) {
+			if (this.timeout == null)
+				this.timeout = setTimeout(() => this.close(), this.waitting - diff);
+
+			return;
+		}
+
+		this.element.classList.remove("showed");
+		document.body.style.overflowY = "auto";
+		setTimeout(() => this.element.classList.remove("displayed"), 500);
+	}
+}
+PreloaderPage.startAt = new Date(Date.now());
 
 document.addEventListener("DOMContentLoaded", () => {
 	AOS.init({ 
 		once: true,
 		delay: 200
 	});
+
 	const animateHeader = new AnimateHeader();
 	const animateNavMenu = new AnimateNavMenu();
 	animateHeader.iniObserver();
 	animateNavMenu.ini();
+});
+window.addEventListener("load", function() {
+	const preloaderPage = new PreloaderPage();
+
+	preloaderPage.close();
 });

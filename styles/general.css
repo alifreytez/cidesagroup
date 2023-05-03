@@ -67,6 +67,173 @@ img {
   display: block;
 }
 
+body {
+  overflow-y: hidden;
+}
+
+/* Preloader Page Animation */
+.preloader-page {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: #0B6CAC;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 20;
+  transition: all 0.5s ease;
+  /** Global preloader styles **/
+  /* Fade Animation */
+  /* Leap Frog */
+}
+.preloader-page.displayed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.preloader-page.showed {
+  background-color: #FFFFFF;
+  opacity: 1;
+}
+.preloader-page.showed .pl,
+.preloader-page.showed .pl:before,
+.preloader-page.showed .pl:after {
+  opacity: 1;
+}
+.preloader-page .pl,
+.preloader-page .pl:before,
+.preloader-page .pl:after {
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.preloader-page .pl {
+  margin: 0 auto 1.5em auto;
+  position: relative;
+  width: 4em;
+  height: 4em;
+}
+.preloader-page .pl:before,
+.preloader-page .pl:after {
+  background: #0B6CAC;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  transform-origin: 50% 100%;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.preloader-page .pl-fade:before {
+  animation-name: fadeA;
+}
+.preloader-page .pl-fade:after {
+  animation-name: fadeB;
+}
+@keyframes fadeA {
+  from, to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  25%, 75.1% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  25.1%, 75% {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+}
+@keyframes fadeB {
+  from, 50% {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  25% {
+    opacity: 1;
+    transform: rotate(90deg);
+  }
+  50.1%, to {
+    opacity: 0;
+    transform: rotate(270deg);
+  }
+  75% {
+    opacity: 1;
+    transform: rotate(270deg);
+  }
+}
+.preloader-page .pl-leapfrog:before, .preloader-page .pl-leapfrog:after {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
+  top: 50%;
+  left: 50%;
+  width: 70.71%;
+  height: 70.71%;
+  transform-origin: 0 0;
+}
+.preloader-page .pl-leapfrog:before {
+  animation-name: leapFrogA;
+}
+.preloader-page .pl-leapfrog:after {
+  animation-name: leapFrogB;
+  background: #DDDDDD;
+}
+@keyframes leapFrogA {
+  from {
+    transform: rotateZ(-135deg) rotateY(0deg) rotateX(0deg);
+    z-index: 0;
+  }
+  12.5% {
+    transform: rotateZ(-135deg) rotateY(-180deg) rotateX(0deg);
+    z-index: 1;
+  }
+  25%, 50% {
+    transform: rotateZ(-135deg) rotateY(-180deg) rotateX(-180deg);
+    z-index: 0;
+  }
+  62.5% {
+    transform: rotateZ(-135deg) rotateY(0deg) rotateX(-180deg);
+    z-index: 1;
+  }
+  75%, to {
+    transform: rotateZ(-135deg) rotateY(0deg) rotateX(-360deg);
+    z-index: 0;
+  }
+}
+@keyframes leapFrogB {
+  from, 25% {
+    transform: rotateZ(-45deg) rotateY(0deg) rotateX(0deg);
+    z-index: 0;
+  }
+  37.5% {
+    transform: rotateZ(-45deg) rotateY(-180deg) rotateX(0deg);
+    z-index: 1;
+  }
+  50%, 75% {
+    transform: rotateZ(-45deg) rotateY(-180deg) rotateX(-180deg);
+    z-index: 0;
+  }
+  87.5% {
+    transform: rotateZ(-45deg) rotateY(0deg) rotateX(-180deg);
+    z-index: 1;
+  }
+  to {
+    transform: rotateZ(-45deg) rotateY(0deg) rotateX(-360deg);
+    z-index: 0;
+  }
+}
+
 /* All */
 .general-margin {
   width: 75%;
@@ -143,6 +310,21 @@ section {
 section .btn-wrapper {
   margin-top: 30px;
 }
+section .normal-list li {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 5px;
+}
+section .normal-list li i {
+  color: #0B6CAC;
+  display: block;
+  text-align: center;
+  width: 40px;
+}
+section .normal-list li div {
+  width: calc(100% - 40px);
+}
 section.blue-bg h1, section.blue-bg h2, section.blue-bg p {
   color: #FFFFFF;
 }
@@ -208,6 +390,7 @@ section.blue-bg .cta-btn.active, section.blue-bg .cta-btn:hover {
   transform: translateY(-50%);
 }
 .two-content-wrapper .shortest-side {
+  position: relative;
   width: calc(40% - 15px);
 }
 .two-content-wrapper .left-side, .two-content-wrapper .right-side {

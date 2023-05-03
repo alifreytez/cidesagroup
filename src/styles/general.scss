@@ -7,6 +7,7 @@
 @include fonts-get(rubik, (400, 500, 600, 700));
 @include reset;
 @include custom(());
+@include preloader(());
 
 /* All */
 
@@ -91,6 +92,25 @@
 			margin-top: 30px;
 		}
 
+		.normal-list {
+			li {
+				@include layout.flex((w: wrap));
+				list-style: none;
+				margin-top: 5px;
+				
+				i {
+					color: $colors-primary;
+					display: block;
+					text-align: center;
+					width: calc(20px + 20px);
+				}
+
+				div {
+					width: calc(100% - 40px);
+				}
+			}
+		}
+
 		&.blue-bg {
 			h1, h2, p {
 				color: $colors-white;
@@ -166,6 +186,7 @@
 		}
 	
 		.shortest-side {	
+			position: relative;
 			width: calc(40% - 15px);			
 		}
 

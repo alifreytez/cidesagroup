@@ -209,6 +209,10 @@
         text-align: center;
         padding: 20px;
 
+        &.soon-location {
+            background-color: $colors-gray;
+        }
+
         h4 {
             color: $colors-gray-text;
             font-size: 0.8rem;
@@ -295,11 +299,12 @@
                 padding-bottom: 40px;
         
                 .historic-fact {
-        
+                    flex-direction: unset !important;
                     li {
                         border-left: 5px solid $colors-primary;
                         border-right: 0 !important;
                         margin-top: 40px;
+                        margin-left: 20px;
                         width: calc(100% - 20px);
         
                         span {

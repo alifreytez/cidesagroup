@@ -5,6 +5,7 @@
 
 @include fonts-get(firasans, (400, 500,700));
 @include fonts-get(rubik, (400, 500, 600, 700));
+@include fonts-get(dm_serif_text, (400));
 @include reset;
 @include custom(());
 @include preloader(());
@@ -93,6 +94,8 @@
 		}
 
 		.normal-list {
+			margin-top: 10px;
+
 			li {
 				@include layout.flex((w: wrap));
 				list-style: none;
@@ -107,6 +110,10 @@
 
 				div {
 					width: calc(100% - 40px);
+				}
+
+				&:first-child {
+					margin-top: 0;
 				}
 			}
 		}
@@ -141,7 +148,7 @@
 
 		background-repeat: no-repeat;
 		background-size: cover;
-		min-height: calc(100vh - 110px);
+		min-height: calc(100vh - 110px - 160px - 200px);
 		position: relative;
 		overflow: hidden;
 		z-index: 1;
@@ -152,14 +159,6 @@
 			position: relative;
 			text-align: center;
 			z-index: 2;
-
-			.h1-page, .h1-name {
-				display: block;
-			}
-			
-			.h1-name {
-				color: $colors-gray-title;
-			}
 		}
 
 		&.grow {
@@ -215,6 +214,39 @@
 		height: 100%;
 		background-color: $colors-p-trans;
 		z-index: 0;
+	}
+	
+	.opportune-message {
+		padding: 40px 0;
+
+		h2, p {
+			text-align: center;
+		}
+
+		h2 {
+			font-size: 2rem;
+		}
+
+		p {
+			font-size: 1.5rem;
+			margin-top: 0;
+		}
+
+		&.gray {
+			background-color: $colors-gray;
+
+			h2, p {
+				color: $colors-black;
+			}
+		}
+		
+		&.blue {
+			background-color: $colors-primary;
+
+			h2, p {
+				color: $colors-white;
+			}
+		}
 	}
 
 /* Specific */

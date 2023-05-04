@@ -16,6 +16,10 @@
         padding: 30px;
         text-align: center;
 
+        &.soon-location {
+            background-color: $colors-gray;
+        }
+
         h5 {
             color: $colors-primary;
             font-size: 1rem;

@@ -34,6 +34,7 @@
 		}
     }
 }
+
 .left-dual {
     .shortest-side {
 		&::after {
@@ -41,6 +42,7 @@
 		}
 	}
 }
+
 .right-dual {
     .two-content-wrapper {
         flex-direction: unset;
@@ -61,14 +63,24 @@
     }
 }
 
-.manage-business-process-service {
+.manage-business-process-service, .organization-business {
     background-color: $colors-gray;
 }
 
-.software-factory-service {
+.software-factory-service {}
 
+.slogan {
+    p {
+        font-family: "dm_serif_text";
+        font-size: 2.4rem;
+        font-weight: 600;
+        letter-spacing: -1px;
+    }
 }
 
+.programming-implementation {}
+.organization-business {}
+.education-programs {}
 
 /* Media Queries */
 @media (max-width: 1100px) {
@@ -86,6 +98,12 @@
 }
 
 @media (max-width: 900px) {
+    .slogan {
+        p {
+            font-size: 2rem;
+        }
+    }
+
     .right-dual, .left-dual {
         .longest-side {
             .btn-wrapper {
@@ -112,6 +130,7 @@
 }
 
 @media (max-width: 750px) {
+
     .right-dual {
         .two-content-wrapper {
             flex-direction: column-reverse;

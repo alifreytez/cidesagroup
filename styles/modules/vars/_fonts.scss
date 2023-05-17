@@ -1,0 +1,87 @@
+//// 
+//
+// NOTA
+// 
+// Es estrictamente obligatorio que la lista de pesos de cada fuente contenga
+// únicamente los que son utilizados en al menos un archivo del sitio web.
+// 
+////
+
+@use 'sass:list';
+
+$path: "../fonts";
+$weight-relations: (
+	100: "Thin",
+	200: "ExtraLight",
+	300: "Light",
+	400: "Regular",
+	500: "Medium",
+	600: "SemiBold",
+	700: "Bold",
+	800: "ExtraBold",
+	900: "Black"
+);
+$format-priority: ();
+$families: (
+	inter: (
+		folder: "inter",
+		format: "woff",
+		weights: (100, 200, 300, 400, 500, 600, 700, 800, 900)
+	),
+	poppins: (
+		folder: "poppins",
+		format: "woff",
+		weights: (100, 200, 300, 400, 500, 600, 700, 800, 900)
+	),
+	lato: (
+		folder: "lato",
+		format: "woff",
+		weights: (100, 300, 400, 700, 900)
+	),
+	firasans: (
+		folder: "firasans",
+		format: "ttf",
+		weights: (100, 200, 300, 400, 500, 600, 700, 800, 900)
+	),
+	rubik: (
+		folder: "rubik",
+		format: "ttf",
+		weights: (300, 400, 500, 600, 700, 800, 900)
+	),
+	dm_serif_text: (
+		folder: "dm_serif_text",
+		format: "ttf",
+		wights: (400)
+	)
+);
+
+@function build-url($font-name, $weight) {
+	$folder: map-get($families, $font-name, "folder");
+	$format: map-get($families, $font-name, "format");
+	$weight-name: map-get($weight-relations, $weight);
+	$string: url("#{$path}/#{$folder}/#{$weight-name}.#{$format}");
+
+	@return $string;
+}
+@function prepare-url-list($font-name, $weight) {
+	$url: "";
+	$index: list.index(map-get($families, $font-name, "weights"), $weight);
+	$check-weight: map-has-key($weight-relations, $weight);
+	@if $index != null and $check-weight {
+		$url: build-url($font-name, $weight)
+	}
+
+	@return $url;
+}
+
+@mixin get($name, $weights: (400)) {
+	@if map-has-key($families, $name) {
+		@each $w in $weights {
+			@font-face {
+				font-family: ""+$name+"";
+				font-weight: $w;
+				src: prepare-url-list($name, $w);
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+@use '../vars/_all' as *;
+
+@mixin custom($props: ()) {
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		font-family: 'Rubik', sans-serif;
+		font-size: 15px;
+		font-weight: 400;
+		color: $colors-gray-text;
+		line-height: 1.5;
+	}
+
+	img {
+		display: block;
+	}
+	
+	select {
+		display: none;
+
+		&.show {
+			display: block;
+		}
+	}
+}

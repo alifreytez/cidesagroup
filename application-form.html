@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon Relation -->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Styles -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/advanced-form.css">
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/631ff6d478.js" crossorigin="anonymous"></script>
+    <script src="scripts/application-form.js" type="module"></script>
+    <title>Advanced Form - Cidesa Group</title>
+</head>
+<body>
+    <!-- Page Preloader -->
+<!--
+    <div id="preloader-page" class="preloader-page displayed showed">
+        <div class="pl pl-leapfrog"></div>
+    </div>
+-->
+    <!-- Page content -->
+    <main>
+        <a href="index.html" class="go-home"><i class="fa-solid fa-arrow-left"></i>Go back home</a>
+        <form id="form-content" class="form-content">
+            <div class="content-wrapper">
+                <div class="content-text">
+                    <div class="logo"><img src="images/logo.png" alt=""></div>
+                    <h1>Become Partner</h1>
+                    <p class="comment">Queremos We want to get to know you, so we look forward to hearing from you. <span>We will keep saved your information.</span></p>
+                    <div id="advfor-input-wrapper" class="advfor-input-wrapper">
+                        <div class="input-slider">
+                            <div class="input-group current show display" data-group="1">
+                                <div class="double-box">
+                                    <div class="d-box">
+                                        <label for="name">Name</label>
+                                        <input type="text" id="name" name="name" placeholder="Type your name">
+                                    </div>
+                                    <div class="d-box">
+                                        <label for="last-name">Last name</label>
+                                        <input type="text" id="last-name" name="last-name" placeholder="Type your last name">
+                                    </div>
+                                </div>
+                                <div class="double-box">
+                                    <div class="d-box">
+                                        <label for="email">Email</label>
+                                        <input type="text" id="email" name="email" placeholder="Type your email">
+                                    </div>
+                                    <div class="d-box">
+                                        <label for="phone-number">Phone number</label>
+                                        <input type="text" id="phone-number" name="phone-number" placeholder="Type your phone number">
+                                    </div>
+                                </div>
+                                <div class="double-box">
+                                    <div class="d-box">
+                                        <label for="birthdate">Birthdate</label>
+                                        <input type="date" id="birthdate" name="birthdate" placeholder="Type your birthdate">
+                                    </div>
+                                    <div class="d-box">
+                                        <label for="sex">Sex</label>
+                                        <div id="select-sex" data-select-id="sex" class="advanced-select">
+                                            <div class="option-text-wrapper">
+                                                <span class="option-text"></span>
+                                                <button type="button" class="option-menu-btn"><i class="fa-solid fa-angle-down"></i></button>
+                                            </div>
+                                            <ul class="menu">
+                                            </ul>
+                                        </div>
+                                        <select name="sex" id="sex">
+                                            <option value="f" selected>Female</option>
+                                            <option value="m">Male</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group" data-group="2">
+                                <div class="double-box">
+                                    <div class="d-box">
+                                        <label for="name">Name</label>
+                                        <input type="text" id="name" name="name" placeholder="Type your name">
+                                    </div>
+                                    <div class="d-box">
+                                        <label for="last-name">Last name</label>
+                                        <input type="text" id="last-name" name="last-name" placeholder="Type your last name">
+                                    </div>
+                                </div>
+                                <div class="double-box">
+                                    <div class="d-box">
+                                        <label for="name">Name</label>
+                                        <input type="text" id="name" name="name" placeholder="Type your name">
+                                    </div>
+                                    <div class="d-box">
+                                        <label for="last-name">Last name</label>
+                                        <input type="text" id="last-name" name="last-name" placeholder="Type your last name">
+                                    </div>
+                                </div>
+                                <div class="double-box">
+                                    <div class="d-box">
+                                        <label for="email">Email</label>
+                                        <input type="text" id="email" name="email" placeholder="Type your email">
+                                    </div>
+                                    <div class="d-box">
+                                        <label for="phone-number">Phone number</label>
+                                        <input type="text" id="phone-number" name="phone-number" placeholder="Type your phone number">
+                                    </div>
+                                </div>
+                                <div class="double-box">
+                                    <div class="d-box">
+                                        <label for="birthdate">Birthdate</label>
+                                        <input type="date" id="birthdate" name="birthdate" placeholder="Type your birthdate">
+                                    </div>
+                                    <div class="d-box">
+                                        <label for="sex">Sex</label>
+                                        <div id="select-sexs" data-select-id="sexs" class="advanced-select">
+                                            <div class="option-text-wrapper">
+                                                <span class="option-text"></span>
+                                                <button type="button" class="option-menu-btn"><i class="fa-solid fa-angle-down"></i></button>
+                                            </div>
+                                            <ul class="menu">
+                                            </ul>
+                                        </div>
+                                        <select name="sexs" id="sexs">
+                                            <option value="f" selected>Female</option>
+                                            <option value="m">Male</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group" data-group="3">
+                                <div class="double-box">
+                                    <div class="d-box">
+                                        <label for="name">Name</label>
+                                        <input type="text" id="name" name="name" placeholder="Type your name">
+                                    </div>
+                                    <div class="d-box">
+                                        <label for="last-name">Last name</label>
+                                        <input type="text" id="last-name" name="last-name" placeholder="Type your last name">
+                                    </div>
+                                </div>
+                                <div class="double-box">
+                                    <div class="d-box">
+                                        <label for="email">Email</label>
+                                        <input type="text" id="email" name="email" placeholder="Type your email">
+                                    </div>
+                                    <div class="d-box">
+                                        <label for="phone-number">Phone number</label>
+                                        <input type="text" id="phone-number" name="phone-number" placeholder="Type your phone number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="advfor-controls" class="advfor-controls">
+                    <button tpye="button" id="submit-btn" class="submit-btn active">Send Data</button>
+                    <div id="advfor-navigation" class="advanced-navigation">
+                        <button type="button" class="prev-btn"><div></div></button>
+                        <ul class="pages">
+                        </ul>
+                        <button type="button" class="next-btn"><div></div></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <aside id="aside-content" class="aside-content">
+            <div class="content-wrapper">
+                <p class="quote">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab sequi a magni ad repudiandae dolorum?"</p>
+                <p class="author">Name</p>
+                <p class="position">Position in the company</p>
+            </div>
+            <div class="bg-cover"></div>
+        </aside>
+    </main>    
+</body>
+</html>

@@ -1,0 +1,148 @@
+@use '../vars/_all' as *;
+@use '../mixins/_layout' as layout;
+
+@mixin preloader($props: ()) {
+	body {
+		overflow-y: hidden;
+	}
+    
+    /* Preloader Page Animation */
+	.preloader-page {
+		display: none;
+		width: 100%;
+		height: 100vh;
+		background-color: $colors-primary;
+		position: fixed;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		z-index: 20;
+		transition: all .5s ease;
+
+		&.displayed {
+			@include layout.flex((j-c: center, a-i: center, w: wrap));
+		}
+		
+		&.showed {
+			background-color: $colors-white;
+			opacity: 1;
+
+			.pl,
+			.pl:before,
+			.pl:after {
+				opacity: 1;
+			}
+		}
+
+		/** Global preloader styles **/
+		.pl,
+		.pl:before,
+		.pl:after {
+			animation-duration: 2s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			opacity: 0;
+			transition: opacity .3s ease;
+		}
+		.pl {
+			margin: 0 auto 1.5em auto;
+			position: relative;
+			width: 4em;
+			height: 4em;
+		}
+		.pl:before,
+		.pl:after {
+			background: $colors-primary;
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 50%;
+			transform-origin: 50% 100%;
+			clip-path: polygon(0 0, 100% 0, 50% 100%);
+			-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+		}
+
+		/* Fade Animation */
+		.pl-fade:before {
+			animation-name: fadeA;
+		}
+		.pl-fade:after {
+			animation-name: fadeB;
+		}
+		@keyframes fadeA {
+			from,
+			to {
+				opacity: 1;
+				transform: rotate(0deg);
+			}
+			25%,
+			75.1% {
+				opacity: 0;
+				transform: rotate(0deg);
+			}
+			25.1%,
+			75% {
+				opacity: 0;
+				transform: rotate(180deg);
+			}
+			50% {
+				opacity: 1;
+				transform: rotate(180deg);
+			}
+		}
+		@keyframes fadeB {
+			from,
+			50% {
+				opacity: 0;
+				transform: rotate(90deg);
+			}
+			25% {
+				opacity: 1;
+				transform: rotate(90deg);
+			}
+			50.1%,
+			to {
+				opacity: 0;
+				transform: rotate(270deg);
+			}
+			75% {
+				opacity: 1;
+				transform: rotate(270deg);
+			}
+		}
+		/* Leap Frog */
+		.pl-leapfrog:before, .pl-leapfrog:after {
+			clip-path: polygon(0 0,100% 0,0 100%);
+			-webkit-clip-path: polygon(0 0,100% 0,0 100%);
+			top: 50%;
+			left: 50%;
+			width: 70.71%;
+			height: 70.71%;
+			transform-origin: 0 0;
+		}
+		.pl-leapfrog:before {
+			animation-name: leapFrogA;
+		}
+		.pl-leapfrog:after {
+			animation-name: leapFrogB;
+			background: $colors-gray-deco;
+		}
+		@keyframes leapFrogA {
+			from { transform: rotateZ(-135deg) rotateY(0deg) rotateX(0deg); z-index: 0 }
+			12.5% { transform: rotateZ(-135deg) rotateY(-180deg) rotateX(0deg); z-index: 1 }
+			25%, 50% { transform: rotateZ(-135deg) rotateY(-180deg) rotateX(-180deg); z-index: 0 }
+			62.5% { transform: rotateZ(-135deg) rotateY(0deg) rotateX(-180deg); z-index: 1 }
+			75%, to { transform: rotateZ(-135deg) rotateY(0deg) rotateX(-360deg); z-index: 0 }
+		}
+		@keyframes leapFrogB {
+			from, 25% { transform: rotateZ(-45deg) rotateY(0deg) rotateX(0deg); z-index: 0 }
+			37.5% { transform: rotateZ(-45deg) rotateY(-180deg) rotateX(0deg); z-index: 1 }
+			50%, 75% { transform: rotateZ(-45deg) rotateY(-180deg) rotateX(-180deg); z-index: 0 }
+			87.5% { transform: rotateZ(-45deg) rotateY(0deg) rotateX(-180deg); z-index: 1 }
+			to { transform: rotateZ(-45deg) rotateY(0deg) rotateX(-360deg); z-index: 0 }
+		}
+	}
+}

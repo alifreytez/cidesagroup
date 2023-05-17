@@ -18,4 +18,12 @@
 	img {
 		display: block;
 	}
+	
+	select {
+		display: none;
+
+		&.show {
+			display: block;
+		}
+	}
 }

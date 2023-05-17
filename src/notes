@@ -1,0 +1,1 @@
+los elementos advanced select, la razon por la cual no cuadra el offsetTop es porque esa propiedad toma su valor respecto al padre Relative.

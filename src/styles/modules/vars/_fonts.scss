@@ -78,7 +78,7 @@ $families: (
 	@if map-has-key($families, $name) {
 		@each $w in $weights {
 			@font-face {
-				font-family: $name;
+				font-family: ""+$name+"";
 				font-weight: $w;
 				src: prepare-url-list($name, $w);
 			}
